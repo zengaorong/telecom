@@ -178,3 +178,85 @@ def changeselect():
         writeexcel_bykey(os.path.join(current_app.config['UPLOADED_PHOTOS_DEST'], 'output.xlsx'),10,"",key_num)
         return jsonify(data=True)
     return '''<h1>数据错误,联系吉吉米米解决<h1> <a href="/paiche/list">返回</a>'''
+
+
+
+
+
+from flask import send_from_directory
+from werkzeug.utils import secure_filename
+@paiche.route('/get_attachment/<path:filename>')
+def get_attachment(filename):
+    print filename
+    return send_from_directory(current_app.config['UPLOADED_PHOTOS_DEST'],filename,as_attachment=True)
+
+# 上传
+ALLOWED_EXTENSIONS = ['xls', 'xlsx']
+def allowe_file(filename):
+    '''
+    限制上传的文件格式
+    :param filename:
+    :return:
+    '''
+    return '.' in filename and filename.rsplit('.',1)[1] in ALLOWED_EXTENSIONS
+
+
+@paiche.route('/upload', methods=['GET', 'POST'])
+@login_required
+def updata():
+    return render_template('paiche/upload.html')
+
+
+@paiche.route('/upload_file', methods=['GET', 'POST'])
+@login_required
+def upload_file():
+    # file = request.files.get('文件名') # 获取文件
+    file = request.files['file']
+    filename = secure_filename(file.filename)  # 获取文件名
+    #file.save(os.path.join(current_app.config['UPLOADED_PHOTOS_DEST'], filename)) # 保存文件
+    excel_dict = {}
+    try:
+        f = file.read()    #文件内容
+        excel_workbook = xlrd.open_workbook(file_contents=f)
+        excel_sheet01 = excel_workbook.sheets()[0]
+        terminal_num_nrows = excel_sheet01.nrows
+        terminal_num_ncols = excel_sheet01.ncols
+
+        print terminal_num_nrows,terminal_num_ncols
+
+        orign_list = readexcel_tolist(os.path.join(current_app.config['UPLOADED_PHOTOS_DEST'], 'output.xlsx'),2,0,0)
+        biaoti_list = orign_list[0]
+        format_list = orign_list[1:]
+
+        dict_check = {}
+        total_num = 1
+        for data_key in format_list:
+            dict_check[data_key[2]] = [data_key[10],total_num]
+            total_num = total_num + 1
+
+
+        error_list = []
+        for r in range(1,terminal_num_nrows):
+            # print str((excel_sheet01.cell(r,2).value))
+            if str((excel_sheet01.cell(r,10).value))!=None and str((excel_sheet01.cell(r,10).value))!='':
+                # print repr(str((excel_sheet01.cell(r,10).value)))
+                # print str((excel_sheet01.cell(r,10).value))
+                print dict_check[excel_sheet01.cell(r,2).value][0]
+                if dict_check[excel_sheet01.cell(r,2).value][0]==None or dict_check[excel_sheet01.cell(r,2).value][0]=='':
+                    writeexcel_bykey(os.path.join(current_app.config['UPLOADED_PHOTOS_DEST'], 'output.xlsx'),10,excel_sheet01.cell(r,10).value,dict_check[excel_sheet01.cell(r,2).value][1])
+                else:
+                    if dict_check[excel_sheet01.cell(r,2).value][0] == excel_sheet01.cell(r,10).value:
+                        pass
+                    else:
+                        error_list.append(str(excel_sheet01.cell(r,10).value) + ':' + str(excel_sheet01.cell(r,2).value) )
+
+
+
+    except:
+        return "上传格式不正确"
+
+
+
+
+
+    return render_template('paiche/uploadtips.html',error_list=error_list)
