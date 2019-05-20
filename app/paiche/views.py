@@ -256,5 +256,4 @@ def upload_file():
         return "上传格式不正确"
 
 
-
     return render_template('paiche/uploadtips.html',error_list=error_list)
