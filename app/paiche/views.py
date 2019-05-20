@@ -257,6 +257,4 @@ def upload_file():
 
 
 
-
-
     return render_template('paiche/uploadtips.html',error_list=error_list)
