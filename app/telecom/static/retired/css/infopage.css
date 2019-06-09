@@ -1,0 +1,16 @@
+.text-word{
+	width:90%;
+	margin-left: 5%;
+	margin-top: 20px;
+}
+.timeoftext{
+	text-align: center;
+	font-size: 12px;
+	color:#555555;
+	padding-top: 10px;
+}
+.h-nav{
+	width:96%;
+	text-align: center;
+	margin-left: 2%;
+}

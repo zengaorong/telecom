@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/bootstrap.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/css.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/sethelp.css')}}" type="text/css" />
+    <title>安福县退役军人之家</title>
+</head>
+<body>
+<div class="top">
+    <div class="top-left"><img src="{{url_for('static', filename='static/retired/images/logo.png')}}" >安福县退役军人之家</div>
+</div>
+<div class="nav">
+    <div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/jc.png')}}">求助公安</div>
+    <p style="float: left;">请输入事件描述:</p>
+    <textarea autofocus class="set-text" >
+
+			</textarea>
+    <div class="set-btn">
+        点击提交后将提交至相关部门&nbsp;&nbsp;<button class="set-btn-btn">提交</button>
+    </div>
+</div>
+<div class="foot">
+    退役军人求助系统<br>
+    求助热线：12345678<br>
+
+</div>
+</body>
+<script src="{{url_for('static', filename='static/retired/js/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='static/retired/js/m.js')}}"></script>
+<script src="{{url_for('static', filename='static/retired/js/bootstrap.min.js')}}"></script>
+</html>

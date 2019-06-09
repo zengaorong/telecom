@@ -43,5 +43,8 @@ def create_app(config_name):
     from .paiche import paiche as paiche_blueprint
     app.register_blueprint(paiche_blueprint, url_prefix='/telecom/paiche')
 
+    from .retired import retired as retired_blueprint
+    app.register_blueprint(retired_blueprint, url_prefix='/telecom/retired')
+
 
     return app

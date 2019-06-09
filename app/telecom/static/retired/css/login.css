@@ -1,0 +1,72 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+body{
+	overflow-y:hidden;
+	background: #000;
+}
+.nav{
+	
+	width: 80%;
+	margin-left:10%;
+	margin-top: 250px;
+
+}
+.backgroundimg{
+	width:100%;
+	z-index: -10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.95;
+}
+.nav-input{
+	outline:none;
+	background:rgba(255,255,255,0.5);
+	color:#fff;
+	border:1px rgba(0,0,0,0.9) solid;
+	width:90%;
+	margin-left:5%;
+	margin-top:18px;
+	height:35px;
+	border-radius:5px;
+	font-size:12px;
+	box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.nav-button{
+	outline:none;
+	background:#0D3203;
+	color:#fff;
+	border:1px rgba(0,0,0,0.3) solid;
+	width:90%;
+	margin-left:5%;
+	margin-top:18px;
+	height:38px;
+	border-radius:2px;
+	cursor: pointer;
+	font-size:12px;
+}
+.nav-a{
+	width:80%;
+	margin-left: 10%;
+	text-align:center;
+	margin-top: 30px;
+}
+.nav-a a{
+	color:#0099ff;
+	font-size: 16px;
+}
+.foot{
+	width: 80%;
+	margin-left:10%;
+	bottom: 30px;
+	text-align: center;
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+	color:#BDBDBD;
+	position: fixed;
+}

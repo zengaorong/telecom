@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/bootstrap.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/index.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/css.css')}}" type="text/css" />
+    <title>安福县退役军人之家</title>
+</head>
+<body>
+<div class="top">
+    <div class="top-left"><img src="{{url_for('static', filename='static/retired/images/logo.png')}}" >安福县退役军人之家</div>
+</div>
+<div class="roll-pic" >
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"  >
+        <ol class="carousel-indicators" style="margin-bottom: 0px;height: 30px;">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active"> <a href="#"><img class="itemimg" src="{{url_for('static', filename='static/retired/images/side01.png')}}" alt="0 slide" onclick="GotoOtherPage('infopage.html')" ></a> </div>
+            <div class="item"> <a href="#"><img  class="itemimg" src="{{url_for('static', filename='static/retired/images/side02.jpg')}}" alt='1 slide'  onclick="GotoOtherPage('infopage.html')"></a> </div>
+            <div class="item"> <a href="#"><img  class='itemimg' src="{{url_for('static', filename='static/retired/images/side03.png')}}" alt="2 slide" onclick="GotoOtherPage('infopage.html')" ></a> </div>
+            <div class="item"> <a href="#"><img class="itemimg" src="{{url_for('static', filename='static/retired/images/side04.png')}}" alt="3 slide"  onclick="GotoOtherPage('infopage.html')"></a> </div>
+        </div>
+        <a id="carleft" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" > <span class="sr-only">Previous</span> </a> <a id="carright" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="sr-only">Next</span> </a> </div>
+</div>
+<div class="mid">
+    <div class="mid-top"> <img src="{{url_for('static', filename='static/retired/images/li-logo.png')}}">最新动态
+        <div style="float:right;margin-right: 5px;">更多>></div>
+    </div>
+    <div class="mid-nav">
+        <ol>
+            <li onclick="GotoOtherPage('infopage')"><img src="{{url_for('static', filename='static/retired/images/info.png')}}">中央宣传部、退役军人事务部、中央军委政治工作部部署开展2019年“最美退役军人”学习宣传活动</li>
+            <li onclick="GotoOtherPage('infopage')"><img src="{{url_for('static', filename='static/retired/images/info.png')}}">退役军人事务部关于向社会广泛征集部徽及国家退役军人服务中心标志设计图案的公告</li>
+            <li onclick="GotoOtherPage('infopage')"><img src="{{url_for('static', filename='static/retired/images/info.png')}}">退役军人事务部退役军人培训中心2019年度公开招聘应届毕业生面试公告</li>
+            <li onclick="GotoOtherPage('infopage')"><img src="{{url_for('static', filename='static/retired/images/info.png')}}">国家退役军人服务中心2019年面向社会公开招聘公告招聘岗位招聘岗位</li>
+
+
+        </ol>
+    </div>
+</div>
+<div class="mid">
+    <div class="mid-top"> <img src="{{url_for('static', filename='static/retired/images/li-logo.png')}}">快速求助
+        <div style="float:right;margin-right: 5px;">👌</div>
+    </div>
+    <div class="mid-nav">
+        <div class="btn-nav">
+            <div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/jc.png')}}">求助公安</div><div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/jy.png')}}">就业问题</div>
+        </div>
+        <div class="btn-nav">
+            <div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/yy.png')}}">求助医院</div><div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/xf.png')}}">求助消防</div>
+        </div>
+        <div class="btn-nav">
+            <div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/hj.png')}}">环境问题</div><div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/zf.png')}}">住房问题</div>
+        </div>
+        <div class="btn-nav">
+            <div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/ga.png')}}">求助民政</div><div class="btn-box" onclick="GotoOtherPage('sethelp')"><img src="{{url_for('static', filename='static/retired/images/sb.png')}}">社保问题</div>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    退役军人求助系统<br>
+    求助热线：12345678<br>
+    微信公众号：安福县退役军人之家
+</div>
+</body>
+<script src="{{url_for('static', filename='static/retired/js/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='static/retired/js/m.js')}}"></script>
+<script src="{{url_for('static', filename='static/retired/js/bootstrap.min.js')}}"></script>
+</html>
