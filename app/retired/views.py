@@ -21,6 +21,11 @@ sys.setdefaultencoding('utf-8')
 
 
 # 搜索漫画
+@retired.route('/login', methods=['GET', 'POST'])
+def retired_login():
+    return render_template('retired/login.html')
+
+# 搜索漫画
 @retired.route('/index', methods=['GET', 'POST'])
 def retired_index():
     return render_template('retired/index.html')

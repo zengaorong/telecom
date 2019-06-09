@@ -1,27 +1,27 @@
 <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
-<link rel="stylesheet" href="../css/login.css" type="text/css" />
-<title>安福县退役军人管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <link rel="stylesheet" href="{{url_for('static', filename='static/retired/css/login.css')}}" type="text/css" />
+    <title>安福县退役军人管理系统</title>
 </head>
 <body>
-	<img src="../images/timg.jpg" class="backgroundimg"/>
+<img src="{{url_for('static', filename='static/retired/images/timg.jpg')}}" class="backgroundimg"/>
 
-	<div class="nav">
-		<input class="nav-input" type="text" placeholder="请输入账号">
-		<input class="nav-input" type="password" placeholder="请输入密码">
-		<button class="nav-button" onclick="GotoOtherPage('index.html')">登录</button>
-		<div class="nav-a">
-		<a href="#">若账号无法登录请点击这里</a>
-		</div>
-	</div>
-	<div class="foot">
-			退役军人管理系统<br>
-		中国电信安福分公司技术支持|@zrl.zy
-	</div>
+<div class="nav">
+    <input class="nav-input" type="text" placeholder="请输入账号">
+    <input class="nav-input" type="password" placeholder="请输入密码">
+    <button class="nav-button" onclick="GotoOtherPage('index')">登录</button>
+    <div class="nav-a">
+        <a href="#">若账号无法登录请点击这里</a>
+    </div>
+</div>
+<div class="foot">
+    退役军人管理系统<br>
+    中国电信安福分公司技术支持|@zrl.zy
+</div>
 </body>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/m.js"></script>
+<script src="{{url_for('static', filename='static/retired/js/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='static/retired/js/m.js')}}"></script>
 </html>
