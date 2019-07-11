@@ -15,6 +15,7 @@ import sys
 from ..leotool.readexcel import readexcel_todict,readexcel_tolist,writeexcel_bykey
 from math import ceil
 import xlrd
+import requests
 import uuid
 import os
 
@@ -72,6 +73,41 @@ class Paginate:
                     yield None
                 yield num
                 last = num
+
+
+# 曲谱主页
+@paiche.route('/change_password',methods=['GET', 'POST'])
+def change_password():
+    nums = request.form.get('nums',"",type=str)
+    passwords = request.form.get('password',"",type=str)
+    print nums,passwords
+
+    header={
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'User-Agent' : 'Dalvik/2.1.0 (Linux; U; Android 6.0; EVA-AL10 Build/HUAWEIEVA-AL10)',
+        'Host' : 'ayw.jxdxxt.com:6060'
+    }
+
+    data_position={
+        'user' : 'car136008',
+        'typeuser' : '1',
+        'password_new' : passwords,
+        'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+        'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+        'reqtime' : '20190710215137097',
+        'jituan' : '1',
+        'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+        'account' : nums
+    }
+    url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updatePwd.do'
+    r2=requests.post(url,data = data_position ,headers=header)
+    return "OK"
+
+
+# 曲谱主页
+@paiche.route('/password',methods=['GET', 'POST'])
+def password():
+    return render_template('paiche/change_password.html')
 
 # 曲谱主页
 @paiche.route('/list',methods=['GET', 'POST'])
