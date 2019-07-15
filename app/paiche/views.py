@@ -88,6 +88,21 @@ def change_password():
         'Host' : 'ayw.jxdxxt.com:6060'
     }
 
+    # 账号清vlan
+    data_position={
+        'user' : 'car136008',
+        'typeuser' : '1',
+        'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+        'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+        'reqtime' : '20190710215137097',
+        'jituan' : '1',
+        'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+        'sn' : '0796114716046'
+    }
+
+    url = "http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/cleanVlanInfo.do"
+    r2=requests.post(url,data = data_position ,headers=header)
+
     data_position={
         'user' : 'car136008',
         'typeuser' : '1',
@@ -100,7 +115,7 @@ def change_password():
         'account' : nums
     }
     url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updatePwd.do'
-    r2=requests.post(url,data = data_position ,headers=header)
+
     return "OK"
 
 
