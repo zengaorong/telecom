@@ -97,7 +97,7 @@ def change_password():
         'reqtime' : '20190710215137097',
         'jituan' : '1',
         'encode' : 'A260E1C1BBA68507AC41160A5591696C',
-        'sn' : '0796114716046'
+        'sn' : nums
     }
 
     url = "http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/cleanVlanInfo.do"
