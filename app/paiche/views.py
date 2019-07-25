@@ -75,49 +75,139 @@ class Paginate:
                 last = num
 
 
+# # 曲谱主页
+# @paiche.route('/change_password',methods=['GET', 'POST'])
+# def change_password():
+#     nums = request.form.get('nums',"",type=str)
+#     passwords = request.form.get('password',"",type=str)
+#     print nums,passwords
+#
+#     header={
+#         'Content-Type' : 'application/x-www-form-urlencoded',
+#         'User-Agent' : 'Dalvik/2.1.0 (Linux; U; Android 6.0; EVA-AL10 Build/HUAWEIEVA-AL10)',
+#         'Host' : 'ayw.jxdxxt.com:6060'
+#     }
+#
+#
+#     # 账号清vlan
+#     data_position={
+#         'user' : 'car136008',
+#         'typeuser' : '1',
+#         'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+#         'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+#         'reqtime' : '20190710215137097',
+#         'jituan' : '1',
+#         'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+#         'sn' : nums
+#     }
+#
+#     url = "http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/cleanVlanInfo.do"
+#     r2=requests.post(url,data = data_position ,headers=header)
+#
+#     data_position={
+#         'user' : 'car136008',
+#         'typeuser' : '1',
+#         'password_new' : passwords,
+#         'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+#         'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+#         'reqtime' : '20190710215137097',
+#         'jituan' : '1',
+#         'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+#         'account' : nums
+#     }
+#     url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updatePwd.do'
+#
+#     return "OK"
+
 # 曲谱主页
-@paiche.route('/change_password',methods=['GET', 'POST'])
-def change_password():
-    nums = request.form.get('nums',"",type=str)
-    passwords = request.form.get('password',"",type=str)
-    print nums,passwords
+@paiche.route('/password_test',methods=['GET', 'POST'])
+def password_test():
+    account = request.form.get('account',"",type=str)
+    password = request.form.get('password',"",type=str)
+    type = request.form.get('type',"",type=str)
+    if type=="1":
+        header={
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'User-Agent' : 'Dalvik/2.1.0 (Linux; U; Android 6.0; EVA-AL10 Build/HUAWEIEVA-AL10)',
+            'Host' : 'ayw.jxdxxt.com:6060'
+        }
+        # 修改上网密码
+        data_position={
+            'user' : 'car136008',
+            'typeuser' : '1',
+            'password_new' : password,
+            'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+            'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+            'reqtime' : '20190710215137097',
+            'jituan' : '1',
+            'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+            'account' : account
+        }
+        url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updatePwd.do'
+        r2=requests.post(url,data = data_position ,headers=header)
+        # 账号清vlan
+        data_position={
+            'user' : 'car136008',
+            'typeuser' : '1',
+            'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+            'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+            'reqtime' : '20190710215137097',
+            'jituan' : '1',
+            'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+            'sn' : account
+        }
+        url = "http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/cleanVlanInfo.do"
+        r2=requests.post(url,data = data_position ,headers=header)
+    if type=="2":
 
-    header={
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'User-Agent' : 'Dalvik/2.1.0 (Linux; U; Android 6.0; EVA-AL10 Build/HUAWEIEVA-AL10)',
-        'Host' : 'ayw.jxdxxt.com:6060'
-    }
+        header={
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'User-Agent' : 'Dalvik/2.1.0 (Linux; U; Android 6.0; EVA-AL10 Build/HUAWEIEVA-AL10)',
+            'Host' : 'ayw.jxdxxt.com:6060'
+        }
+        data_position={
+            'user' : 'car136008',
+            'password_new' : password,
+            'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+            'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+            'reqtime' : '20190710215137097',
+            'jituan' : '1',
+            'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+            'account' : account
+        }
+        url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updateIptvPassword.do'
+        r2=requests.post(url,data = data_position ,headers=header)
+        itv_account = account + "999"
+        # 修改上网密码
+        data_position={
+            'user' : 'car136008',
+            'typeuser' : '1',
+            'password_new' : password,
+            'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+            'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+            'reqtime' : '20190710215137097',
+            'jituan' : '1',
+            'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+            'account' : itv_account
+        }
+        url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updatePwd.do'
+        r2=requests.post(url,data = data_position ,headers=header)
+        # 账号清vlan
+        data_position={
+            'user' : 'car136008',
+            'typeuser' : '1',
+            'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
+            'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
+            'reqtime' : '20190710215137097',
+            'jituan' : '1',
+            'encode' : 'A260E1C1BBA68507AC41160A5591696C',
+            'sn' : itv_account
+        }
+        url = "http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/cleanVlanInfo.do"
+        r2=requests.post(url,data = data_position ,headers=header)
 
-    # 账号清vlan
-    data_position={
-        'user' : 'car136008',
-        'typeuser' : '1',
-        'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
-        'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
-        'reqtime' : '20190710215137097',
-        'jituan' : '1',
-        'encode' : 'A260E1C1BBA68507AC41160A5591696C',
-        'sn' : nums
-    }
 
-    url = "http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/cleanVlanInfo.do"
-    r2=requests.post(url,data = data_position ,headers=header)
-
-    data_position={
-        'user' : 'car136008',
-        'typeuser' : '1',
-        'password_new' : passwords,
-        'token' : '2FDF85153AAF1DF9F4BB56CA8A1B1368',
-        'session' : '68D5B890FC1FF8ADDF4CECE4D419A414',
-        'reqtime' : '20190710215137097',
-        'jituan' : '1',
-        'encode' : 'A260E1C1BBA68507AC41160A5591696C',
-        'account' : nums
-    }
-    url='http://ayw.jxdxxt.com:6060/TFMS_MOBILE_SERVER/updatePwd.do'
-
-    return "OK"
-
+    return jsonify("result:ok")
 
 # 曲谱主页
 @paiche.route('/password',methods=['GET', 'POST'])
