@@ -47,4 +47,8 @@ def create_app(config_name):
     app.register_blueprint(retired_blueprint, url_prefix='/telecom/retired')
 
 
+    from .activation import activation as activation_blueprint
+    app.register_blueprint(activation_blueprint, url_prefix='/telecom/activation')
+
+
     return app
