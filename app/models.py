@@ -288,3 +288,18 @@ login_manager.anonymous_user = AnonymousUser
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+
+
+
+class Activationlist(db.Model):
+    # self.schedule_id = schedule_id
+    __tablename__ = 'activationlist'
+    Id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
+    created_time = db.Column(db.DATETIME)
+    updated_time = db.Column(db.DATETIME)
+
+    ip = db.Column(db.String(24))
+    opreat_type = db.Column(db.String(1))
+    def __repr__(self):
+        return '<activationlist %r>' % self.id

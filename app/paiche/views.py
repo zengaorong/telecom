@@ -216,7 +216,7 @@ def password():
 
 # 曲谱主页
 @paiche.route('/list',methods=['GET', 'POST'])
-@login_required
+# @login_required
 def list():
     # # 检测是否带参数
     # qu_name = request.form.get('qu_name', "", type=str)
@@ -252,7 +252,7 @@ def list():
 
 
     if cus_name!="" or pagination_cus_name!="":
-        form = select_list()
+        form = g()
         if cus_name!="":
             pagination_cus_name = cus_name
         form.cus_name.data = pagination_cus_name
@@ -390,11 +390,10 @@ def upload_file():
                         pass
                     else:
                         error_list.append(str(excel_sheet01.cell(r,10).value) + ':' + str(excel_sheet01.cell(r,2).value) )
-
-
-
     except:
         return "上传格式不正确"
 
 
     return render_template('paiche/uploadtips.html',error_list=error_list)
+
+

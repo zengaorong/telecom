@@ -26,6 +26,20 @@ def retired_login():
     return render_template('retired/login.html')
 
 # 搜索漫画
+@retired.route('/test', methods=['GET', 'POST'])
+def test():
+    time = request.form
+    print request.remote_addr
+    print time
+    data_json_return = {
+        "type": "ok",
+        "ip": request.remote_addr,
+        "id": "0001"
+    }
+    return  "ok"
+    # return jsonify({'code': -1, 'filename': '', 'msg': 'No file part'})
+
+# 搜索漫画
 @retired.route('/index', methods=['GET', 'POST'])
 def retired_index():
     return render_template('retired/index.html')

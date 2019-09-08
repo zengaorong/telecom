@@ -15,7 +15,7 @@ class details_qupu(FlaskForm):
 
 
 class select_list(FlaskForm):
-    cus_name = StringField('促销人姓名',validators=[DataRequired(), Length(1, 255)],render_kw={"id":"cus_name"})
+    user_ip = StringField('IP查询',validators=[DataRequired(), Length(1, 255)],render_kw={"id":"user_ip"})
     # user_num = StringField('业务号码',validators=[DataRequired(), Length(1, 255)],render_kw={"id":"user_num"})
     submit = SubmitField('搜索')
 
