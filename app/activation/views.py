@@ -21,7 +21,7 @@ sys.setdefaultencoding('utf-8')
 @activation.route('/active')
 def active():
     time = request.form
-    ip = request.remote_addr
+    ip = request.headers['X-Real-Ip']
     print time
 
     activationlist = Activationlist.query.filter_by(ip=ip).first()
@@ -46,7 +46,7 @@ def active():
 
     data_json_return = {
         "type": "ok",
-        "ip": request.remote_addr,
+        "ip": ip,
         "id": activationlist.Id
     }
     return  jsonify(data_json_return)
