@@ -21,6 +21,11 @@ class Config:
     if(sysstr == "Linux"):
         UPLOADED_PHOTOS_DEST = os.getcwd() + '/app/paiche/static_data'
 
+    sysstr = platform.system()
+    if(sysstr =="Windows"):
+        DOWNLOADED_ACTIVATION_DEST = os.getcwd() + '\\app\\activation\\static_data'
+    if(sysstr == "Linux"):
+        DOWNLOADED_ACTIVATION_DEST = os.getcwd() + '/app/activation/static_data'
 
     # UPLOADED_PHOTOS_DEST = os.environ.get(os.getcwd(), 'app/static/uploads')
     SQLALCHEMY_TRACK_MODIFICATIONS = False

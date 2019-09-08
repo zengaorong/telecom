@@ -105,3 +105,17 @@ def exp_excel():
         file_type='xlsx',
         file_name='activationlist',
     )
+
+
+from flask import send_from_directory
+from werkzeug.utils import secure_filename
+@activation.route('/get_attachment/<path:filename>')
+def get_attachment(filename):
+    print filename
+    return send_from_directory(current_app.config['DOWNLOADED_ACTIVATION_DEST'],filename,as_attachment=True)
+
+
+
+@activation.route('/down')
+def down():
+    return render_template("activation/down_list.html")
