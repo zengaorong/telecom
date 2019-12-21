@@ -16,6 +16,6 @@ def make_shell_context():
 
 sysstr = platform.system()
 if(sysstr =="Windows"):
-    app.run(host='127.0.0.1',port=8088,debug=True)
+    app.run(host='127.0.0.1',port=8888,debug=True)
 if(sysstr == "Linux"):
     app.run(host='127.0.0.1',port=8088,debug=True)
